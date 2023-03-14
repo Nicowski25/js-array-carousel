@@ -4,8 +4,8 @@
     box-sizing: border-box;
 }
 
-.h_400 {
-    height: 400px;
+.max-400 {
+    max-height: 400px;
 }
 
 .images img:not(.active) {

@@ -1,10 +1,10 @@
 //creo l'array delle immagini
 const images = [
-    '../img/01.webp',
-    '../img/02.webp',
-    '../img/03.webp',
-    '../img/04.webp',
-    '../img/05.webp'
+    './assets/img/01.webp',
+    './assets/img/02.webp',
+    './assets/img/03.webp',
+    './assets/img/04.webp',
+    './assets/img/05.webp'
 ]
 //setto il puntatore dell'immagine attiva
 let activeImage = 0
@@ -21,13 +21,45 @@ for (let i = 0; i < images.length; i++) {
 }
 
 //selezioniamo tutte le immagini che abbiamo creato 
-const allImagesElement = document.querySelectorAll('.slider > .images > img')
+const allImagesElements = document.querySelectorAll('.row > .images > img')
+console.log(allImagesElements);
 
 //azioniamo il next alla pressione del bottone
-const nextEl = document.querySelector('.next')
+const nextEl = document.getElementById('next')
 nextEl.addEventListener('click', function () {
-  console.log('cliccato next');
+    console.log('cliccato next');
+    console.log(allImagesElements); //array[index]
+    // selezioniamo l'immagine corrente
+    const currentImage = allImagesElements[activeImage]
+    console.log(currentImage);
+    // remove the active class from the active image
+    currentImage.classList.remove('active')
+    // incremente the value of the activeImage variable
+    activeImage++ // increment the value of activeImage of 1 every time we click on the next button
+    // select the next slide
+    console.log(activeImage);
+    const nextImage = allImagesElements[activeImage]
+    // add the active class
+    console.log(nextImage);
+    nextImage.classList.add('active')
+})
 
-
-
+//azioniamo il prev alla pressione del bottone
+const prevEl = document.getElementById('prev')
+prevEl.addEventListener('click', function () {
+    console.log('cliccato prev');
+    console.log(allImagesElements); //array[index]
+    // selezioniamo l'immagine corrente
+    const currentImage = allImagesElements[activeImage]
+    console.log(currentImage);
+    // remove the active class from the active image
+    currentImage.classList.remove('active')
+    // incremente the value of the activeImage variable
+    activeImage-- // increment the value of activeImage of 1 every time we click on the next button
+    // select the next slide
+    console.log(activeImage);
+    const nextImage = allImagesElements[activeImage]
+    // add the active class
+    console.log(nextImage);
+    nextImage.classList.add('active')
 })

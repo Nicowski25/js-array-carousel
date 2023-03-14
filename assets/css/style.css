@@ -7,3 +7,7 @@
 .h_400 {
     height: 400px;
 }
+
+.images img:not(.active) {
+    display: none;
+}
